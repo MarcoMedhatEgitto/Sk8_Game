@@ -1,0 +1,85 @@
+# This is the Kivy Language file for styling and layout.
+# It must be saved in the same directory as main.py and be named 'sk8game.kv'.
+
+<Sk8GamePage>:
+    # The root widget for the page is a FloatLayout, allowing for flexible positioning.
+
+    canvas.before:
+        # Drawing a subtle background color with a gradient effect for style.
+        Color:
+            rgba: 0.15, 0.15, 0.15, 1
+        Rectangle:
+            size: self.size
+            pos: self.pos
+
+    Label:
+        # Title of the app page.
+        text: 'sk8Game'
+        font_name: 'Roboto' # Using a standard, clean font
+        font_size: '48sp'
+        color: 0.8, 0.9, 1, 1 # Light blue-white text color
+        # Centering the title at the top of the page.
+        size_hint: None, None
+        size: self.texture_size
+        pos_hint: {'center_x': 0.5, 'y': 0.75}
+
+    BoxLayout:
+        # This BoxLayout will contain the three buttons.
+        orientation: 'vertical'
+        spacing: '20dp' # Space between the buttons
+        padding: '30dp' # Padding inside the box layout
+        size_hint: 0.8, None
+        height: '240dp'
+        pos_hint: {'center_x': 0.5, 'center_y': 0.4}
+
+        # Adding an aesthetic border and rounded corners to the box layout.
+        canvas.before:
+            Color:
+                rgba: 0.25, 0.25, 0.25, 0.8
+            RoundedRectangle:
+                size: self.size
+                pos: self.pos
+                radius: [20,]
+
+        Button:
+            # First button: "start a single game"
+            text: 'start a single game'
+            font_size: '22sp'
+            background_color: 0.2, 0.6, 0.8, 1 # A nice blue color
+            background_normal: '' # Disables the default button texture
+            # Adding rounded corners and a shadow effect.
+            canvas.before:
+                Color:
+                    rgba: 0.1, 0.4, 0.6, 1
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [15,]
+
+        Button:
+            # Second button: "start a multiplayer"
+            text: 'start a multiplayer'
+            font_size: '22sp'
+            background_color: 0.2, 0.8, 0.6, 1 # A green-ish color
+            background_normal: ''
+            canvas.before:
+                Color:
+                    rgba: 0.1, 0.6, 0.4, 1
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [15,]
+
+        Button:
+            # Third button: "show profile"
+            text: 'show profile'
+            font_size: '22sp'
+            background_color: 0.8, 0.6, 0.2, 1 # A gold/orange color
+            background_normal: ''
+            canvas.before:
+                Color:
+                    rgba: 0.6, 0.4, 0.1, 1
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [15,]
