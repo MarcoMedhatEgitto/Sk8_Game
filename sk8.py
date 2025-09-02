@@ -26,6 +26,10 @@ class SK8GameApp(App):
             print(f"Loaded Progress -> Name: {saved_name}")
             # Access the TextInput directly via the app's root ids dictionary
             self.root.ids.name_input.text = saved_name
+            if saved_name != '':
+                self.root.ids.name_view.text = saved_name
+            else:
+                self.root.ids.name_view.text = "Your name here"
 
 
 if __name__ == '__main__':

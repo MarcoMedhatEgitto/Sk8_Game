@@ -256,7 +256,45 @@ ScreenManager:
                     pos: self.pos
 
             Label:
-                text: 'Save Your Progress'
+                id: name_view
+                text: 'Your name here'
+                font_size: '35sp'
+                color: (1, 1, 1, 1)
+                bold: True
+                size_hint_y: 0.2
+                pos_hint: {"top": 1}
+                halign: 'center'
+                valign: 'middle'
+            Button:
+                text: 'edit your data'
+                size_hint_y: None
+                height: '50dp'
+                on_press: app.root.transition.direction = 'left'
+                on_press: app.root.current = 'user_data'
+
+            Button:
+                text: 'Back to Menu'
+                size_hint_y: None
+                height: '50dp'
+                on_press: app.root.transition.direction = 'right'
+                on_press: app.root.current = 'main_menu'
+    #User name edit screen
+    Screen:
+        on_pre_enter: app.load_progress()
+        name: 'user_data'
+        BoxLayout:
+            orientation: 'vertical'
+            padding: [20, 50, 20, 50]
+            spacing: 20
+            canvas.before:
+                Color:
+                    rgba: 0.1, 0.1, 0.1, 1
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+
+            Label:
+                text: 'Edit/Add Your Name'
                 font_size: '35sp'
                 color: (1, 1, 1, 1)
                 bold: True
@@ -285,4 +323,4 @@ ScreenManager:
                 size_hint_y: None
                 height: '50dp'
                 on_press: app.root.transition.direction = 'right'
-                on_press: app.root.current = 'main_menu'
+                on_press: app.root.current = 'progress_screen'
